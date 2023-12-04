@@ -3,9 +3,9 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-    <section class="relative isolate bg-white">
+    <section class="relative isolate bg-white mt-10 lg:mt-0">
         <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-            <div class="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
+            <div class="relative px-6 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
                 <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
                     <h2 class="text-3xl font-bold tracking-tight text-gray-900">Contactez-nous</h2>
                     <p class="mt-6 text-lg leading-8 text-gray-600">Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt integer elementum id sem. Arcu sed malesuada et magna.</p>
@@ -40,49 +40,86 @@
                     </dl>
                 </div>
             </div>
-            <form action="#" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
-                <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+            {{ form_start(contactForm, {'attr': {'class':'px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'}}) }}
+                <div class="mx-auto max-w-xl lg:max-w-lg">
+                    {% if not contactForm.vars.valid %}
+                        <div class="border-l-4 border-red-400 bg-red-50 p-4 mb-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3 text-sm text-red-700">
+                                    <p class="text-sm text-red-700">
+                                        {{ form_errors(contactForm.fullName) }}
+                                        {{ form_errors(contactForm.email) }}
+                                        {{ form_errors(contactForm.phoneNumber) }}
+                                        {{ form_errors(contactForm.society) }}
+                                        {{ form_errors(contactForm.subject) }}
+                                        {{ form_errors(contactForm.message) }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% for message in app.flashes('success') %}
+                        <div class="border-l-4 border-green-400 bg-green-50 p-4 mb-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3 text-sm text-green-700">
+                                    <p class="text-sm text-green-700">
+                                        {{ message }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                         <div>
-                            <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Nom/Prénom</label>
+                            <label class="block text-sm font-semibold leading-6 text-gray-900">{{ form_label(contactForm.fullName, 'Nom/Prénom') }}</label>
                             <div class="mt-2.5">
-                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6">
+                                {{ form_widget(contactForm.fullName, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
                             </div>
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">E-mail</label>
+                            <label class="block text-sm font-semibold leading-6 text-gray-900">{{ form_label(contactForm.email, 'E-mail') }}</label>
                             <div class="mt-2.5">
-                                <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6">
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between">
-                                <label for="phone-number" class="block text-sm font-semibold leading-6">Téléphone</label>
-                                <p class="text-gray-500 text-sm mt-0.5">Optionnel</p>
-                            </div>
-                            <div class="mt-2.5">
-                                <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6">
+                                {{ form_widget(contactForm.email, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between">
-                                <label class="block text-sm font-medium leading-6">Société</label>
+                                <label class="block text-sm font-semibold leading-6">{{ form_label(contactForm.phoneNumber, 'Téléphone') }}</label>
                                 <p class="text-gray-500 text-sm mt-0.5">Optionnel</p>
                             </div>
                             <div class="mt-2.5">
-                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6">
+                                {{ form_widget(contactForm.phoneNumber, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between">
+                                <label class="block text-sm font-medium leading-6">{{ form_label(contactForm.society, 'Société') }}</label>
+                                <p class="text-gray-500 text-sm mt-0.5">Optionnel</p>
+                            </div>
+                            <div class="mt-2.5">
+                                {{ form_widget(contactForm.society, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
                             </div>
                         </div>
                         <div class="col-span-2">
-                            <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Sujet</label>
+                            <label class="block text-sm font-medium leading-6">{{ form_label(contactForm.subject, 'Sujet') }}</label>
                             <div class="mt-2.5">
-                                <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6">
+                                {{ form_widget(contactForm.subject, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
                             </div>
                         </div>
-                        <div class="sm:col-span-2">
-                            <label for="message" class="block text-sm font-semibold leading-6">Message</label>
+                        <div class="col-span-2">
+                            <label for="message" class="block text-sm font-semibold leading-6">{{ form_label(contactForm.message, 'Message') }}</label>
                             <div class="mt-2.5">
-                                <textarea name="message" id="message" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6"></textarea>
+                                {{ form_widget(contactForm.message, {'attr': {'rows': '4', 'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
                             </div>
                         </div>
                     </div>
@@ -90,7 +127,7 @@
                         <button type="submit" class="rounded-md bg-main px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-main-strong transition duration-200">Envoyer</button>
                     </div>
                 </div>
-            </form>
+            {{ form_end(contactForm) }}
         </div>
     </section>
 {% endblock %}

@@ -34,7 +34,6 @@ class RegistrationController extends AbstractController
         $userRole = ['ROLE_USER'];
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -46,7 +45,6 @@ class RegistrationController extends AbstractController
 
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
             $authenticator->authenticateUser($user, $loginFormAuthenticator, $request);
 
