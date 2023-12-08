@@ -1,12 +1,20 @@
 {% extends 'auth_base.html.twig' %}
 
+{% block robots %}index, follow{% endblock %}
 {% block title %}Inscription{% endblock %}
+{% block description %}{% endblock %}
+
+{% block ogTitle %}Jaltup - Inscription{% endblock %}
+{% block ogUrl %}https://jaltup.com/inscription{% endblock %}
+{% block ogImage %}{{ asset('media/website/jaltup-banniere.webp') }}{% endblock %}
+{% block ogImageAlt %}Jaltup bannière{% endblock %}
+{% block ogDescription %}{% endblock %}
 
 {% block body %}
     <section class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <a href="{{ path('app_home') }}">
-                <img class="mx-auto h-6 w-auto" src="{{ asset('media/logos/logo.png') }}" alt="Logo Jaltup">
+                <img class="mx-auto h-6 w-auto" src="{{ asset('media/logos/logo.webp') }}" alt="Logo Jaltup">
             </a>
             <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Inscrivez-vous gratuitement</h2>
             <p class="mt-2 text-center text-sm text-gray-500">
@@ -54,7 +62,6 @@
                         <button type="submit" class="flex w-full justify-center rounded-md bg-main px-3 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-main-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main transition duration-200">Continuer</button>
                     </div>
                 {{ form_end(registrationForm) }}
-
                 <div>
                     <div class="relative mt-10">
                         <div class="absolute inset-0 flex items-center" aria-hidden="true">
@@ -64,9 +71,8 @@
                             <span class="bg-white px-6 text-gray-900">S'inscrire avec</span>
                         </div>
                     </div>
-
                     <div class="mt-6 gap-4">
-                        <a href="#" class="flex w-full items-center justify-center gap-3 rounded-md bg-gray-100 border-gray-100 px-3 py-2.5 hover:text-main transition duration-200 hover:bg-gray-200/70 border border-gray-300">
+                        <a href="#" class="flex w-full items-center justify-center gap-3 rounded-md bg-gray-100 px-3 py-2.5 hover:text-main transition duration-200 hover:bg-gray-200/70 border border-gray-300">
                             <svg class="h-5 w-6" viewBox="0 0 134 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9.09091 100H30.303V48.4848L0 25.7576V90.9091C0 95.9394 4.07576 100 9.09091 100Z" fill="#4285F4"/>
                                 <path d="M103.03 100H124.242C129.273 100 133.333 95.9242 133.333 90.9091V25.7576L103.03 48.4848" fill="#34A853"/>
@@ -84,6 +90,4 @@
             </div>
         </div>
     </section>
-    {{ form_errors(registrationForm) }}
-
 {% endblock %}

@@ -1,0 +1,77 @@
+<!-- Google Tag Manager -->
+<script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-56D7SJRF');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jaltup - {% block title %}{% endblock %}</title>
+<meta name="description" content="{% block description %}{% endblock %}">
+<meta name="robots" content="{% block robots %}{% endblock %}"/>
+<link rel="icon" href="{{ asset('media/logos/favicon.ico') }}">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="{% block ogTitle %}{% endblock %}">
+<meta property="og:url" content="{% block ogUrl %}{% endblock %}">
+<meta property="og:image" content="{% block ogImage %}{% endblock %}">
+<meta property="og:image:alt" content="{% block ogImageAlt %}{% endblock %}"/>
+<meta property="og:description" content="{% block ogDescription %}{% endblock %}">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Jaltup",
+        "description": "Trouvez des offres, postulez, échangez avec la communauté et simplifiez votre parcours en tant qu'alternant.",
+        "url": "https://jaltup.com",
+        "logo": "https://jaltup.com/media/logos/logo.png",
+        "foundingDate": "2023-12-01",
+        "founders": [
+            {
+                "@type": "Person",
+                "name": "Benjamin Roche"
+            },
+            {
+                "@type": "Person",
+                "name": "Sebastien Aymard"
+            },
+            {
+                "@type": "Person",
+                "name": "Jean-Baptiste Pavageau"
+            }
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "128 Rue de la Boetie",
+            "addressLocality": "Paris",
+            "postalCode": "75008",
+            "addressCountry": "FR"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@jaltup.com",
+            "contactType": "service client"
+        },
+        "sameAs": [
+            "https://www.instagram.com/jaltup_/",
+            "https://twitter.com/Jaltup_",
+            "https://www.linkedin.com/company/jaltup"
+        ]
+    }
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L70SP9N41D"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L70SP9N41D');
+</script>

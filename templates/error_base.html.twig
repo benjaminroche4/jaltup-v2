@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" class="h-full">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="icon" href="{{ asset('media/logos/favicon.ico') }}">
-        <title>Jaltup - {% block title %}{% endblock %}</title>
-
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -16,6 +10,10 @@
         {% endblock %}
     </head>
     <body class="flex justify-center items-center h-screen">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56D7SJRF" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
         <main>
             {% block body %}{% endblock %}
         </main>

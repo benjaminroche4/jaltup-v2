@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
+{% block robots %}index, follow{% endblock %}
 {% block title %}Mentions légales{% endblock %}
+{% block description %}{% endblock %}
+
+{% block ogTitle %}Jaltup - Mentions légales{% endblock %}
+{% block ogUrl %}https://jaltup.com/mentions-legales{% endblock %}
+{% block ogImage %}{{ asset('media/website/jaltup-banniere.webp') }}{% endblock %}
+{% block ogImageAlt %}Jaltup bannière{% endblock %}
+{% block ogDescription %}{% endblock %}
 
 {% block body %}
-    <div class="bg-white py-24 sm:py-28 relative mt-10">
+    <section class="bg-white py-24 sm:py-28 relative mt-10">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:mx-0">
                 <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">Mentions légales</h1>
@@ -17,5 +25,5 @@
                 <p class="mt-6 leading-8 text-gray-600"><span class="font-semibold text-gray-900">Hébergeur :</span> ce site est hébergé par 02 Switch (https://www.o2switch.fr/)</p>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

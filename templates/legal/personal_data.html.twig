@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
+{% block robots %}index, follow{% endblock %}
 {% block title %}Données personnelles{% endblock %}
+{% block description %}{% endblock %}
+
+{% block ogTitle %}Jaltup - Données personnelles{% endblock %}
+{% block ogUrl %}https://jaltup.com/donnees-personnelles{% endblock %}
+{% block ogImage %}{{ asset('media/website/jaltup-banniere.webp') }}{% endblock %}
+{% block ogImageAlt %}Jaltup bannière{% endblock %}
+{% block ogDescription %}{% endblock %}
 
 {% block body %}
-    <div class="bg-white py-24 sm:py-28 relative mt-10">
+    <section class="bg-white py-24 sm:py-28 relative mt-10">
         <div class="mx-auto max-w-7xl px-6 lg:px-8 justify-center">
             <div class="mx-auto max-w-2xl lg:mx-0">
                 <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">Données personnelles</h1>
@@ -45,5 +53,5 @@
                 <p class="mt-6 leading-8 text-gray-600">Pour recevoir gratuitement un extrait de données personnelles que nous traitons vous concernant, vous pouvez nous envoyer une lettre recommandée à l’adresse suivante : JALTUP SAS, 128 Rue de la Boetie 75008 Paris</p>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

@@ -1,6 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block robots %}index, follow{% endblock %}
 {% block title %}Contact{% endblock %}
+{% block description %}{% endblock %}
+
+{% block ogTitle %}Jaltup - Contact{% endblock %}
+{% block ogUrl %}https://jaltup.com/contact{% endblock %}
+{% block ogImage %}{{ asset('media/website/jaltup-banniere.webp') }}{% endblock %}
+{% block ogImageAlt %}Jaltup bannière{% endblock %}
+{% block ogDescription %}{% endblock %}
 
 {% block body %}
     <section class="relative isolate bg-white mt-10 lg:mt-0">
@@ -8,7 +16,7 @@
             <div class="relative px-6 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
                 <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
                     <h2 class="text-3xl font-bold tracking-tight text-gray-900">Contactez-nous</h2>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt integer elementum id sem. Arcu sed malesuada et magna.</p>
+                    <p class="mt-6 text-lg leading-8 text-gray-600">Vous êtes étudiant ou une entreprise ? Vous souhaitez nous contacter ? Remplissez le formulaire, un membre de notre équipe vous rappelle sous 2 heures.</p>
                     <dl class="mt-10 space-y-4 text-base leading-7 text-gray-600">
                         <div class="flex gap-x-4">
                             <dt class="flex-none">
@@ -35,7 +43,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                 </svg>
                             </dt>
-                            <dd><a class="hover:text-gray-900" href="mailto:contact@uniflow.agency">contact@uniflow.agency</a></dd>
+                            <dd><a class="hover:text-gray-900" href="mailto:contact@uniflow.agency">contact@jaltup.com</a></dd>
                         </div>
                     </dl>
                 </div>
@@ -110,13 +118,13 @@
                                 {{ form_widget(contactForm.society, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
                             </div>
                         </div>
-                        <div class="col-span-2">
+                        <div class="sm:col-span-2">
                             <label class="block text-sm font-medium leading-6">{{ form_label(contactForm.subject, 'Sujet') }}</label>
                             <div class="mt-2.5">
                                 {{ form_widget(contactForm.subject, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
                             </div>
                         </div>
-                        <div class="col-span-2">
+                        <div class="sm:col-span-2">
                             <label for="message" class="block text-sm font-semibold leading-6">{{ form_label(contactForm.message, 'Message') }}</label>
                             <div class="mt-2.5">
                                 {{ form_widget(contactForm.message, {'attr': {'rows': '4', 'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
