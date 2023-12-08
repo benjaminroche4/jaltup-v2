@@ -2,19 +2,19 @@
 
 {% block robots %}index, follow{% endblock %}
 {% block title %}Inscription{% endblock %}
-{% block description %}{% endblock %}
+{% block description %}Créez-vous un compte gratuitement et accédez à des milliers d'offres d'emploi en alternance.{% endblock %}
 
 {% block ogTitle %}Jaltup - Inscription{% endblock %}
 {% block ogUrl %}https://jaltup.com/inscription{% endblock %}
 {% block ogImage %}{{ asset('media/website/jaltup-banniere.webp') }}{% endblock %}
 {% block ogImageAlt %}Jaltup bannière{% endblock %}
-{% block ogDescription %}{% endblock %}
+{% block ogDescription %}Créez-vous un compte gratuitement et accédez à des milliers d'offres d'emploi en alternance.{% endblock %}
 
 {% block body %}
     <section class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <a href="{{ path('app_home') }}">
-                <img class="mx-auto h-6 w-auto" src="{{ asset('media/logos/logo.webp') }}" alt="Logo Jaltup">
+                <img class="mx-auto h-6 w-auto" src="{{ asset('media/logos/logo.webp') }}" alt="Logo Jaltup" width="200">
             </a>
             <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Inscrivez-vous gratuitement</h2>
             <p class="mt-2 text-center text-sm text-gray-500">

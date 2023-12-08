@@ -2,13 +2,13 @@
 
 {% block robots %}index, follow{% endblock %}
 {% block title %}La plateforme n°1 de l'alternance{% endblock %}
-{% block description %}Trouvez des offres, postulez, échangez avec la communauté et simplifiez votre parcours en tant qu'alternant. Inscription gratuite.{% endblock %}
+{% block description %}Trouvez des offres d'emploi en alternance, postulez et simplifiez votre parcours en tant qu'alternant. Inscription gratuite.{% endblock %}
 
-{% block ogTitle %}Jaltup - La plateforme tout-en-un pour l'alternance{% endblock %}
+{% block ogTitle %}Jaltup - La plateforme n°1 de l'alternance{% endblock %}
 {% block ogUrl %}https://jaltup.com{% endblock %}
 {% block ogImage %}{{ asset('media/website/jaltup-banniere.webp') }}{% endblock %}
 {% block ogImageAlt %}Jaltup bannière{% endblock %}
-{% block ogDescription %}{% endblock %}
+{% block ogDescription %}Trouvez des offres d'emploi en alternance, postulez et simplifiez votre parcours en tant qu'alternant. Inscription gratuite.{% endblock %}
 
 {% block body %}
     <section class="relative bg-white z-20">
@@ -27,27 +27,27 @@
                         </div>
                     </div>
                     <h1 class="text-4xl font-bold tracking-tight text-gray-900 mt-10 sm:text-6xl">Trouvez votre prochaine alternance</h1>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">Intégrez une communauté d’alternants et accédez aux dernières offres exclusives dans plus de 600 secteurs d’activités du CAP au Bac+8.</p>
+                    <p class="mt-6 text-lg leading-8 text-gray-600">Intégrez une communauté d’alternants et accédez aux dernières offres exclusives dans plus de 600 secteurs d’activités du CAP au Bac+5.</p>
                     <div class="mt-10 flex items-center gap-x-6">
                         <a href="{{ path('app_register') }}" class="rounded-md bg-main px-5 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-main-strong transition duration-200">S'inscrire gratuitement</a>
                     </div>
                 </div>
             </div>
             <div class="relative lg:col-span-5 flex justify-center items-center p-4">
-                <img src="{{ asset('media/website/jaltup-plateforme-alternance.webp') }}" alt="Jaltup, plateforme d'alternance. Du CAP au Bac+8. 600 secteurs d'activité partout en France." width="600"/>
+                <img src="{{ asset('media/website/jaltup-plateforme-alternance.webp') }}" alt="Jaltup, plateforme d'alternance. Du CAP au Bac+5. 600 secteurs d'activité partout en France." width="600"/>
             </div>
         </div>
     </section>
 
-    <section class="relative px-5 lg:-mt-24 z-30">
+    <section class="relative px-5 lg:-mt-24 z-30 mt-10">
         <div class="mx-auto max-w-7xl px-6 lg:px-8 bg-gray-100/60 rounded-2xl py-12 sm:py-24">
             <h2 class="text-center text-lg font-semibold leading-8 text-gray-900">+250 entreprises postent leurs offres d'alternance sur Jaltup</h2>
             <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor" width="158" height="48">
-                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform" width="158" height="48">
-                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple" width="158" height="48">
-                <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal" width="158" height="48">
-                <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic" width="158" height="48">
+                <img class="col-span-2 max-h-12 w-10/12 object-contain lg:col-span-1" src="{{ asset('media/website/brands/masteos.webp') }}" alt="Masteos logo" width="158" height="48">
+                <img class="col-span-2 max-h-12 w-10/12 object-contain lg:col-span-1" src="{{ asset('media/website/brands/vinci.webp') }}" alt="Vinci logo" width="158" height="48">
+                <img class="col-span-2 max-h-12 w-10/12 object-contain lg:col-span-1 mt-1" src="{{ asset('media/website/brands/capgemini.webp') }}" alt="Capgemini logo" width="158" height="48">
+                <img class="col-span-2 max-h-12 w-10/12 object-contain lg:col-span-1" src="{{ asset('media/website/brands/bouygues.webp') }}" alt="Bougyes logo" width="158" height="48">
+                <img class="col-span-2 col-start-2 max-h-12 w-10/12 object-contain sm:col-start-auto lg:col-span-1" src="{{ asset('media/website/brands/inditex.webp') }}" alt="Inditex logo" width="158" height="48">
             </div>
         </div>
     </section>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="flex items-start justify-center order-first">
-                    <img src="{{ asset('media/website/jaltup-alternant-jeune.webp') }}" alt="Jaltup, alternant en recherche d'entreprise" class="sm:w-10/12 rounded-2xl shadow">
+                    <img src="{{ asset('media/website/jaltup-alternant-jeune.webp') }}" alt="Jaltup, alternant en recherche d'entreprise" class="sm:w-10/12 rounded-2xl shadow" width="600">
                 </div>
             </div>
         </div>
@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <div class="flex items-start justify-center order-first lg:order-2">
-                    <img src="{{ asset('media/website/jaltup-alternant-emploi.webp') }}" alt="Jaltup, alternant en recherche d'emploi" class="sm:w-10/12 rounded-2xl shadow">
+                    <img src="{{ asset('media/website/jaltup-alternant-emploi.webp') }}" alt="Jaltup, alternant en recherche d'emploi" class="sm:w-10/12 rounded-2xl shadow" width="600">
                 </div>
             </div>
         </div>
