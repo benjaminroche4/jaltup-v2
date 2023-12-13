@@ -19,9 +19,15 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
+use Symfony\Component\Uid\Factory\UuidFactory;
 
 class RegistrationController extends AbstractController
 {
+    public function __construct(
+        private readonly UuidFactory $uuidFactory,
+    ) {
+    }
+
     #[Route('/inscription', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher,
                              EntityManagerInterface $entityManager, UserAuthenticatorInterface $authenticator,
@@ -47,6 +53,7 @@ class RegistrationController extends AbstractController
             );
             //when user register, he is ROLE_USER_INCOMPLETE
             $user->setRoles([RoleInterface::ROLE_USER_INCOMPLETE]);
+            $user->setUuid($this->uuidFactory->create());
             $user->setCreatedAt(new \DateTimeImmutable());
 
             $entityManager->persist($user);

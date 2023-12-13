@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[isGranted(RoleInterface::ROLE_ADMIN)]
-class BackendController extends AbstractController
+class DashboardController extends AbstractController
 {
     #[Route('/backend/dashboard', name: 'app_backend_dashboard')]
     public function backendDashboard(): Response
