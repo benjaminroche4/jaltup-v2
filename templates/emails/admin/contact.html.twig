@@ -1,0 +1,12 @@
+<h1 class="text-green-600">[Jaltup Contact] Demande de contact</h1>
+<p>{{ createdAt | date('d F Y') | format_date(locale='fr') }} à {{ createdAt | date('H:i') }}</p>
+<br/>
+<p>Nom/Prénom : {{ fullName }}</p>
+<p>Email : {{ emailContact }}</p>
+<p>Téléphone : {{ phoneNumber }}</p>
+<p>Société : {{ society }}</p>
+<p>Sujet : {{ subject }}</p>
+<p>Message : {{ message }}</p>
+
+
+------
