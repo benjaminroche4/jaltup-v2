@@ -41,7 +41,7 @@ class Company implements PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $employeeCountRange = null;
 
-    #[ORM\Column(type: Types::JSON)]
+    #[ORM\Column]
     private array $status = [];
 
     #[ORM\Column]
@@ -50,14 +50,53 @@ class Company implements PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $bio = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $phoneNumber = null;
+    #[ORM\Column]
+    private ?int $phoneNumber = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $websiteUrl = null;
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
+
+    #[ORM\Column]
+    private ?int $siret = null;
+
+    #[ORM\ManyToOne(inversedBy: 'companies')]
+    private ?IndustryCategory $category = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $legalStructure = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $addressOne = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $addressTwo = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $city = null;
+
+    #[ORM\Column]
+    private ?int $postalCode = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $country = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $contactFullName = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $contactEmail = null;
+
+    #[ORM\Column]
+    private ?int $contactPhoneNumber = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $contactJobTitle = null;
+
+    #[ORM\Column]
+    private array $roles = [];
 
     public function getId(): ?int
     {
@@ -194,12 +233,12 @@ class Company implements PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPhoneNumber(): ?string
+    public function getPhoneNumber(): ?int
     {
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(string $phoneNumber): static
+    public function setPhoneNumber(int $phoneNumber): static
     {
         $this->phoneNumber = $phoneNumber;
 
@@ -226,6 +265,162 @@ class Company implements PasswordAuthenticatedUserInterface
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getSiret(): ?int
+    {
+        return $this->siret;
+    }
+
+    public function setSiret(int $siret): static
+    {
+        $this->siret = $siret;
+
+        return $this;
+    }
+
+    public function getCategory(): ?IndustryCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?IndustryCategory $category): static
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getLegalStructure(): ?string
+    {
+        return $this->legalStructure;
+    }
+
+    public function setLegalStructure(string $legalStructure): static
+    {
+        $this->legalStructure = $legalStructure;
+
+        return $this;
+    }
+
+    public function getAddressOne(): ?string
+    {
+        return $this->addressOne;
+    }
+
+    public function setAddressOne(string $addressOne): static
+    {
+        $this->addressOne = $addressOne;
+
+        return $this;
+    }
+
+    public function getAddressTwo(): ?string
+    {
+        return $this->addressTwo;
+    }
+
+    public function setAddressTwo(?string $addressTwo): static
+    {
+        $this->addressTwo = $addressTwo;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): static
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getPostalCode(): ?int
+    {
+        return $this->postalCode;
+    }
+
+    public function setPostalCode(int $postalCode): static
+    {
+        $this->postalCode = $postalCode;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): static
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function getContactFullName(): ?string
+    {
+        return $this->contactFullName;
+    }
+
+    public function setContactFullName(string $contactFullName): static
+    {
+        $this->contactFullName = $contactFullName;
+
+        return $this;
+    }
+
+    public function getContactEmail(): ?string
+    {
+        return $this->contactEmail;
+    }
+
+    public function setContactEmail(string $contactEmail): static
+    {
+        $this->contactEmail = $contactEmail;
+
+        return $this;
+    }
+
+    public function getContactPhoneNumber(): ?int
+    {
+        return $this->contactPhoneNumber;
+    }
+
+    public function setContactPhoneNumber(?int $contactPhoneNumber): static
+    {
+        $this->contactPhoneNumber = $contactPhoneNumber;
+
+        return $this;
+    }
+
+    public function getContactJobTitle(): ?string
+    {
+        return $this->contactJobTitle;
+    }
+
+    public function setContactJobTitle(?string $contactJobTitle): static
+    {
+        $this->contactJobTitle = $contactJobTitle;
+
+        return $this;
+    }
+
+    public function getRoles(): array
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(array $roles): static
+    {
+        $this->roles = $roles;
 
         return $this;
     }
