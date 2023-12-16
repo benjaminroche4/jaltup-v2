@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Public;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Interface\EmailInterface;
-use App\Security\LoginFormAuthenticator;
 use App\Interface\RoleInterface;
+use App\Security\LoginFormAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -67,7 +67,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_soon');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('public/registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

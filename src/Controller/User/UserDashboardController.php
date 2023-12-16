@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 use App\Interface\RoleInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,6 +14,6 @@ class UserDashboardController extends AbstractController
     #[Route('/bientot', name: 'app_soon')]
     public function soon(): Response
     {
-        return $this->render('user_dashboard/soon.html.twig');
+        return $this->render('user/user_dashboard/soon.html.twig');
     }
 }

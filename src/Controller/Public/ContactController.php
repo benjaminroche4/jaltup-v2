@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Public;
 
 use App\Entity\Contact;
 use App\Form\ContactFormType;
@@ -45,7 +45,7 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('app_contact');
         }
 
-        return $this->render('contact/index.html.twig', [
+        return $this->render('public/contact/index.html.twig', [
             'contactForm' => $form->createView(),
         ]);
     }
