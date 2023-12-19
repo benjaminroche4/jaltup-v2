@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block robots %}index, follow{% endblock %}
+{% block title %}Mentions légales{% endblock %}
+{% block description %}Consultez nos mentions légales pour une transparence totale. Informations détaillées sur notre fonctionnement et engagement envers la confidentialité{% endblock %}
+
+{% block ogTitle %}Jaltup - Mentions légales{% endblock %}
+{% block ogUrl %}https://jaltup.com/mentions-legales{% endblock %}
+{% block ogImage %}{{ asset('media/public/jaltup-banniere.webp') }}{% endblock %}
+{% block ogImageAlt %}Jaltup bannière{% endblock %}
+{% block ogDescription %}Consultez nos mentions légales pour une transparence totale. Informations détaillées sur notre fonctionnement et engagement envers la confidentialité.{% endblock %}
+
+{% block body %}
+    <section class="bg-white py-24 sm:py-28 relative mt-10">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:mx-0">
+                <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">Mentions légales</h1>
+            </div>
+            <div class="mx-auto max-w-2xl lg:mx-0">
+                <p class="mt-6 leading-8 text-gray-600">Vous êtes actuellement connecté au site web jaltup.com.<br/> Propriété exclusive de Jaltup SAS.</p>
+                <p class="mt-6 leading-8 text-gray-600">Ce site utilise Google Analytics.</p>
+                <p class="mt-6 leading-8 text-gray-600"><span class="font-semibold text-gray-900">Dénomination sociale :</span> Jaltup SAS, au capital de 1 000 euros, en cours d’immatriculation</p>
+                <p class="mt-6 leading-8 text-gray-600"><span class="font-semibold text-gray-900">Siège social :</span> 128 Rue de la Boetie 75008 Paris</p>
+                <p class="mt-6 leading-8 text-gray-600"><span class="font-semibold text-gray-900">Directeur de publication :</span> Benjamin Roche</p>
+                <p class="mt-6 leading-8 text-gray-600"><span class="font-semibold text-gray-900">Hébergeur :</span> ce site est hébergé par 02 Switch (https://www.o2switch.fr/)</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -3,6 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Contact;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -42,18 +45,22 @@ class ContactFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('phoneNumber', TextType::class, [
+            ->add('phoneNumber', TelType::class, [
+                'required' => false,
                 'constraints' => [
-                    new Length([
-                        'min' => 8,
-                        'max' => 16,
-                        'minMessage' => 'Votre numéro doit faire au minimum {{ limit }} caractères.',
-                        'maxMessage' => 'Votre numéro doit faire au maximum {{ limit }} caractères.',
+                    new Assert\Regex([
+                        'pattern' => '/^\d+$/',
+                        'message' => 'Le numéro de téléphone doit contenir uniquement des chiffres.',
+                    ]),
+                    new Assert\Length([
+                        'min' => 10,
+                        'max' => 10,
+                        'exactMessage' => 'Le numéro de téléphone doit comporter {{ limit }} numéros.',
                     ]),
                 ],
-                'required' => false,
             ])
             ->add('society', TextType::class, [
+                'required' => false,
                 'constraints' => [
                     new Length([
                         'min' => 2,
@@ -62,7 +69,6 @@ class ContactFormType extends AbstractType
                         'maxMessage' => 'Votre société doit faire au minimum {{ limit }} caractères.',
                     ]),
                 ],
-                'required' => false,
             ])
             ->add('subject', ChoiceType::class, [
                 'choices'  => [
