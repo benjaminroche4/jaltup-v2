@@ -41,7 +41,7 @@ class SchoolsController extends AbstractController
 
             $this->sendEmailToAdmin($contactSchool, $mailer, $logger);
 
-            $this->addFlash('success', 'Votre message a bien été envoyé ! Nous vous répondrons dans les meilleurs délais.');
+            $this->addFlash('successContactSchool', 'Votre message a bien été envoyé ! Nous vous répondrons dans les meilleurs délais.');
             return $this->redirectToRoute('app_schools_contact');
         }
 

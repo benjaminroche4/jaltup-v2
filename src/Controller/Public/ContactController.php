@@ -38,7 +38,7 @@ class ContactController extends AbstractController
             $entityManager->persist($contact);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Votre message a bien été envoyé ! Nous vous répondrons dans les meilleurs délais.');
+            $this->addFlash('successContact', 'Votre message a bien été envoyé ! Nous vous répondrons dans les meilleurs délais.');
 
             $this->sendContactEmail($contact, $mailer, $logger);
 

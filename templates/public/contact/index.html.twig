@@ -6,12 +6,23 @@
 
 {% block ogTitle %}Jaltup - Contact{% endblock %}
 {% block ogUrl %}https://jaltup.com/contact{% endblock %}
-{% block ogImage %}{{ asset('media/website/jaltup-banniere.webp') }}{% endblock %}
+{% block ogImage %}{{ asset('media/public/jaltup-banniere.webp') }}{% endblock %}
 {% block ogImageAlt %}Jaltup bannière{% endblock %}
 {% block ogDescription %}Étudiants et entreprises, contactez-nous via notre formulaire. Un membre de notre équipe vous répondra dans les 2 heures.{% endblock %}
 
 {% block body %}
     <section class="relative isolate bg-white mt-10 lg:mt-0">
+        <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+            <defs>
+                <pattern id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527" width="200" height="200" x="50%" y="-64" patternUnits="userSpaceOnUse">
+                    <path d="M100 200V.5M.5 .5H200" fill="none" />
+                </pattern>
+            </defs>
+            <svg x="50%" y="-64" class="overflow-visible fill-gray-50">
+                <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M299.5 800h201v201h-201Z" stroke-width="0" />
+            </svg>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
+        </svg>
         <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
             <div class="relative px-6 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
                 <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
@@ -71,7 +82,7 @@
                             </div>
                         </div>
                     {% endif %}
-                    {% for message in app.flashes('success') %}
+                    {% for message in app.flashes('successContact') %}
                         <div class="border-l-4 border-green-400 bg-green-50 p-4 mb-6">
                             <div class="flex">
                                 <div class="flex-shrink-0">

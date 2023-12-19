@@ -1,22 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscritpion écoles{% endblock %}
+{% block robots %}index, follow{% endblock %}
+{% block title %}Formulaire de contact écoles{% endblock %}
+{% block description %}Rejoignez le réseau Jaltup et offrez des opportunités uniques à vos étudiants.{% endblock %}
+
+{% block ogTitle %}Jaltup - Formulaire de contact écoles{% endblock %}
+{% block ogUrl %}https://jaltup.com/ecoles/contact{% endblock %}
+{% block ogImage %}{{ asset('media/public/jaltup-banniere.webp') }}{% endblock %}
+{% block ogImageAlt %}Jaltup bannière{% endblock %}
+{% block ogDescription %}Rejoignez le réseau Jaltup et offrez des opportunités uniques à vos étudiants.{% endblock %}
+
 
 {% block body %}
-    <!--
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
     <div class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
         <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
             <defs>
@@ -29,16 +24,53 @@
             </svg>
             <rect width="100%" height="100%" stroke-width="0" fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
         </svg>
-        <div class="mx-auto max-w-xl lg:max-w-4xl">
+        <div class="mx-auto max-w-xl lg:max-w-4xl mt-10 lg:mt-0">
             <h2 class="text-4xl font-bold tracking-tight text-gray-900">Vous souhaitez inscrire votre école ?</h2>
             <p class="mt-2 text-lg leading-8 text-gray-600">Plus de 65 écoles font parties du réseau Jaltup. <span class="underline">Inscrivez-vous gratuitement</span>.</p>
             <div class="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
                 {{ form_start(contactSchool, {'attr': {'class':'lg:flex-auto'}}) }}
+                    {% if not contactSchool.vars.valid %}
+                        <div class="border-l-4 border-red-400 bg-red-50 p-4 mb-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3 text-sm text-red-700">
+                                    <p class="text-sm text-red-700">
+                                        {{ form_errors(contactSchool.schoolName) }}
+                                        {{ form_errors(contactSchool.location) }}
+                                        {{ form_errors(contactSchool.contactEmail) }}
+                                        {{ form_errors(contactSchool.contactName) }}
+                                        {{ form_errors(contactSchool.contactNumber) }}
+                                        {{ form_errors(contactSchool.contactMessage) }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% for message in app.flashes('successContactSchool') %}
+                        <div class="border-l-4 border-green-400 bg-green-50 p-4 mb-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-green-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3 text-sm text-green-700">
+                                    <p class="text-sm text-green-700">
+                                        {{ message }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                         <div>
                             <label class="block text-sm font-semibold leading-6 text-gray-900">{{ form_label(contactSchool.schoolName, 'Nom de l\'école') }}</label>
                             <div class="mt-2.5">
-                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                {{ form_widget(contactSchool.schoolName, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
                             </div>
                         </div>
                         <div>
@@ -47,7 +79,7 @@
                                 {{ form_widget(contactSchool.location, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
                             </div>
                         </div>
-                        <div class="col-span-2">
+                        <div class="sm:col-span-2">
                             <label class="block text-sm font-semibold leading-6 text-gray-900">{{ form_label(contactSchool.contactEmail, 'E-mail') }}</label>
                             <div class="mt-2.5">
                                 {{ form_widget(contactSchool.contactEmail, {'attr': {'class':'block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6'}}) }}
@@ -76,20 +108,20 @@
                         </div>
                     </div>
                     <div class="mt-10">
-                        <button type="submit" class="block w-full rounded-md bg-main px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-main-strong transition duration-200">On vous rappelle</button>
+                        <button type="submit" class="block w-full rounded-md bg-main px-5 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-main-strong transition duration-200">On vous rappelle</button>
                     </div>
                 {{ form_end(contactSchool) }}
                 <div class="lg:mt-6 lg:w-80 lg:flex-none">
-                    <img class="h-12 w-auto" src="https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg" alt="">
+                    <img class="h-8 w-auto" src="{{ asset('media/public/jaltup-academia.png') }}" alt="">
                     <figure class="mt-10">
                         <blockquote class="text-lg font-semibold leading-8 text-gray-900">
-                            <p>“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”</p>
+                            <p>“Les étudiants peuvent désormais accéder à un large éventail d'opportunités, adaptées à leurs compétences et à leurs aspirations professionnelles.”</p>
                         </blockquote>
                         <figcaption class="mt-10 flex gap-x-6">
-                            <img src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=96&h=96&q=80" alt="" class="h-12 w-12 flex-none rounded-full bg-gray-50">
+                            <img src="{{ asset('media/public/jaltup-franck-academia.webp') }}" alt="Photo du directeur d'Academia" class="h-12 w-12 flex-none rounded-full bg-gray-50">
                             <div>
-                                <div class="text-base font-semibold text-gray-900">Brenna Goyette</div>
-                                <div class="text-sm leading-6 text-gray-600">CEO of Workcation</div>
+                                <div class="text-base font-semibold text-gray-900">Franck Brenna</div>
+                                <div class="text-sm leading-6 text-gray-600">Directeur du réseau Académia</div>
                             </div>
                         </figcaption>
                     </figure>

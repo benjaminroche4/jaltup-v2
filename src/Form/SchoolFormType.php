@@ -56,7 +56,7 @@ class SchoolFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('contactNumber', NumberType::class, [
+            ->add('contactNumber', TextType::class, [
                 'constraints' => [
                     new Assert\NotBlank([
                         'message' => 'Veuillez saisir le numéro un téléphone.',
