@@ -87,7 +87,7 @@ class RegistrationController extends AbstractController
         try {
             $mailer->send($emailRegister);
         } catch (TransportExceptionInterface $e) {
-            $logger->error('(Register) Error when the email hast been send :'. $e->getMessage());
+            $logger->error('(Register) Error when the email has been send :'. $e->getMessage());
         }
     }
 }

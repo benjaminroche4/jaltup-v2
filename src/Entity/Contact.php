@@ -21,9 +21,6 @@ class Contact
     private ?string $email = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $phoneNumber = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
     private ?string $society = null;
 
     #[ORM\Column(length: 255)]
@@ -34,6 +31,9 @@ class Contact
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $phoneNumber = null;
 
     public function getId(): ?int
     {
@@ -60,18 +60,6 @@ class Contact
     public function setEmail(string $email): static
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    public function getPhoneNumber(): ?string
-    {
-        return $this->phoneNumber;
-    }
-
-    public function setPhoneNumber(?string $phoneNumber): static
-    {
-        $this->phoneNumber = $phoneNumber;
 
         return $this;
     }
@@ -123,4 +111,17 @@ class Contact
 
         return $this;
     }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(?string $phoneNumber): static
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
 }

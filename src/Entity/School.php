@@ -24,13 +24,16 @@ class School
     private ?string $contactName = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $contactNumer = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $contactEmail = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $contactMessage = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $contactNumber = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
 
     public function getId(): ?int
     {
@@ -73,18 +76,6 @@ class School
         return $this;
     }
 
-    public function getContactNumer(): ?string
-    {
-        return $this->contactNumer;
-    }
-
-    public function setContactNumer(string $contactNumer): static
-    {
-        $this->contactNumer = $contactNumer;
-
-        return $this;
-    }
-
     public function getContactEmail(): ?string
     {
         return $this->contactEmail;
@@ -105,6 +96,30 @@ class School
     public function setContactMessage(?string $contactMessage): static
     {
         $this->contactMessage = $contactMessage;
+
+        return $this;
+    }
+
+    public function getContactNumber(): ?string
+    {
+        return $this->contactNumber;
+    }
+
+    public function setContactNumber(string $contactNumber): static
+    {
+        $this->contactNumber = $contactNumber;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
