@@ -93,7 +93,7 @@ class ContactFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('message',TextareaType::class, [
+            ->add('message', TextareaType::class, [
                 'constraints' => [
                     new Assert\NotBlank([
                         'message' => 'Veuillez entrer un message.',

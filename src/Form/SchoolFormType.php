@@ -52,7 +52,8 @@ class SchoolFormType extends AbstractType
                         'min' => 2,
                         'minMessage' => 'Le nom du contact de l\'école doit contenir au moins {{ limit }} caractères.',
                         'max' => 60,
-                        'maxMessage' => 'Le nom du contact de l\'école doit contenir au maximum {{ limit }} caractères.',
+                        'maxMessage' => 'Le nom du contact de l\'école doit contenir au maximum {{ limit }} caractères.'
+                        ,
                     ]),
                 ],
             ])

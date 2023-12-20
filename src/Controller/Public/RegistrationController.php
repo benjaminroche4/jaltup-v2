@@ -29,11 +29,16 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/inscription', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher,
-                             EntityManagerInterface $entityManager, UserAuthenticatorInterface $authenticator,
-                             LoginFormAuthenticator $loginFormAuthenticator, MailerInterface $mailer,
-                             LoggerInterface $logger): Response
-    {
+    public function register(
+        Request $request,
+        UserPasswordHasherInterface $userPasswordHasher,
+        EntityManagerInterface $entityManager,
+        UserAuthenticatorInterface $authenticator,
+        LoginFormAuthenticator $loginFormAuthenticator,
+        MailerInterface $mailer,
+        LoggerInterface $logger
+    ): Response {
+
         if ($this->getUser()) {
             /** TODO: redirect to app_dashboard */
             return $this->redirectToRoute('app_soon');

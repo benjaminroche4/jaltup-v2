@@ -20,7 +20,6 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-
 class CompanyFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void

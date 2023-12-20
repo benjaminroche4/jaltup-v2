@@ -19,8 +19,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
-    public function index(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer, LoggerInterface $logger): Response
-    {
+    public function index(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        MailerInterface $mailer,
+        LoggerInterface $logger
+    ): Response {
         $contact = new Contact();
         $form = $this->createForm(ContactFormType::class);
         $form->handleRequest($request);
@@ -38,7 +42,10 @@ class ContactController extends AbstractController
             $entityManager->persist($contact);
             $entityManager->flush();
 
-            $this->addFlash('successContact', 'Votre message a bien été envoyé ! Nous vous répondrons dans les meilleurs délais.');
+            $this->addFlash(
+                'successContact',
+                'Votre message a bien été envoyé ! Nous vous répondrons dans les meilleurs délais.'
+            );
 
             $this->sendContactEmail($contact, $mailer, $logger);
 

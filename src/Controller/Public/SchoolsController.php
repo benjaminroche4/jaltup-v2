@@ -20,9 +20,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class SchoolsController extends AbstractController
 {
     #[Route('/ecoles/contact', name: 'app_schools_contact')]
-    public function schools(Request $request, EntityManagerInterface $entityManager,
-                            MailerInterface $mailer, LoggerInterface $logger): Response
-    {
+    public function schools(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        MailerInterface $mailer,
+        LoggerInterface $logger
+    ): Response {
+
         $contactSchool = new School();
         $form = $this->createForm(SchoolFormType::class, $contactSchool);
         $form->handleRequest($request);
@@ -41,13 +45,13 @@ class SchoolsController extends AbstractController
 
             $this->sendEmailToAdmin($contactSchool, $mailer, $logger);
 
-            $this->addFlash('successContactSchool', 'Votre message a bien été envoyé ! Nous vous répondrons dans les meilleurs délais.');
+            $this->addFlash('successContactSchool', 'Votre message a bien été envoyé ! Nous vous répondrons dans les 
+            meilleurs délais.');
             return $this->redirectToRoute('app_schools_contact');
         }
 
             return $this->render('public/schools/index.html.twig', [
-            'contactSchool' => $form->createView(),
-        ]);
+            'contactSchool' => $form->createView(),]);
     }
 
     private function sendEmailToAdmin(School $contactSchool, MailerInterface $mailer, LoggerInterface $logger): void
