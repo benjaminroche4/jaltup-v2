@@ -50,7 +50,7 @@ class SchoolsController extends AbstractController
             return $this->redirectToRoute('app_schools_contact');
         }
 
-            return $this->render('public/schools/index.html.twig', [
+            return $this->render('public/schools/profile_first_step.html.twig', [
             'contactSchool' => $form->createView(),]);
     }
 
